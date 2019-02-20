@@ -13,5 +13,6 @@ namespace IoT.GrainInterfaces
         Task<ServiceCallResult> LeaveTeam(string teamId);
 
         Task<ServiceCallResult> Setname(string name);
+        Task<string> GetName();
     }
 }

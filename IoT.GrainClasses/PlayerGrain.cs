@@ -56,6 +56,11 @@ namespace IoT.GrainClasses
             return Task.FromResult(ServiceCallResult.OK);
         }
 
+        public Task<string> GetName()
+        {
+            return Task.FromResult(Name);
+        }
+
         public string Name { get; set; }
         private List<string> Teams { get; set; }
     }

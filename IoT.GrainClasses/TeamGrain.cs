@@ -1,6 +1,9 @@
 using IoT.GrainInterfaces;
 using Orleans;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 using static Game.Model.OperationResults;
 
@@ -40,9 +43,16 @@ namespace IoT.GrainClasses
             return Task.FromResult(ServiceCallResult.OK);
         }
 
-        public Task<List<string>> GetPlayers()
+        public async Task<List<string>> GetPlayers()
         {
-            return Task.FromResult(Players);
+            var playerNames = new List<string>();
+            foreach (var player in Players)
+            {
+                var playerGrain = GrainFactory.GetGrain<IPlayerGrain>(player);
+                var name = await playerGrain.GetName();
+                playerNames.Add(name);
+            }
+            return playerNames;
         }
 
 

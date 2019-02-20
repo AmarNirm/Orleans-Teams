@@ -1,4 +1,5 @@
-﻿using IoT.GrainInterfaces;
+﻿using Game.Model;
+using IoT.GrainInterfaces;
 using Orleans;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -8,11 +9,12 @@ namespace IoT.TestSilo
     public class GameController
     {
 
-        public async void CreatePlayer(string id, string name)
+        public async Task<OperationResults.ServiceCallResult> CreatePlayer(string id, string name)
         {
             //var guid = Guid.NewGuid();
             var player = GrainClient.GrainFactory.GetGrain<IPlayerGrain>(id);
-            await player.Setname(name);
+            var result = await player.Setname(name);
+            return result;
         }
 
         public void CreateTeam(string key)
@@ -20,16 +22,18 @@ namespace IoT.TestSilo
             GrainClient.GrainFactory.GetGrain<ITeamGrain>(key);
         }
 
-        public async void AddPlayerToTeam(string playerKey, string teamId)
+        public async Task<OperationResults.ServiceCallResult> AddPlayerToTeam(string playerKey, string teamId)
         {
             var player = GrainClient.GrainFactory.GetGrain<IPlayerGrain>(playerKey);
-            await player.AddToTeam(teamId);
+            var result = await player.AddToTeam(teamId);
+            return result;
         }
 
-        public async void RemovePlayerFromTeam(string playerKey, string teamId)
+        public async Task<OperationResults.ServiceCallResult> RemovePlayerFromTeam(string playerKey, string teamId)
         {
             var player = GrainClient.GrainFactory.GetGrain<IPlayerGrain>(playerKey);
-            await player.LeaveTeam(teamId);
+            var result = await player.LeaveTeam(teamId);
+            return result;
         }
 
         public async Task<List<string>> ListPlayers(string teamId)
