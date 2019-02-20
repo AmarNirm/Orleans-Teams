@@ -1,9 +1,7 @@
-using System;
-
 using Orleans;
 using Orleans.Runtime.Configuration;
 using Orleans.Runtime.Host;
-using IoT.GrainInterfaces;
+using System;
 
 namespace IoT.TestSilo
 {

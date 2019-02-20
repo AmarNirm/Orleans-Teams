@@ -1,8 +1,6 @@
-using System;
+using Orleans;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Orleans;
-using Game.Model;
 using static Game.Model.OperationResults;
 
 namespace IoT.GrainInterfaces
