@@ -32,17 +32,17 @@ namespace IoT.TestSilo
 
             var game = new GameController();
 
-            // mock
-            var nir = game.CreatePlayer("p1", "p1name").Result;
-            nir = game.CreatePlayer("p2", "p2name").Result;
-            nir = game.CreatePlayer("p3", "p3name").Result;
-            nir = game.CreatePlayer("p4", "p4name").Result;
-            game.CreateTeam("t1");
-            nir = game.AddPlayerToTeam("p1", "t1").Result;
-            nir = game.AddPlayerToTeam("p2", "t1").Result;
-            nir = game.AddPlayerToTeam("p3", "t1").Result;
-            var players2 = game.ListPlayers("t1").Result;
-            Console.WriteLine(String.Join(", ", players2));
+            //// mock
+            //var nir = game.CreatePlayer("p1", "p1name").Result;
+            //nir = game.CreatePlayer("p2", "p2name").Result;
+            //nir = game.CreatePlayer("p3", "p3name").Result;
+            //nir = game.CreatePlayer("p4", "p4name").Result;
+            //game.CreateTeam("t1");
+            //nir = game.AddPlayerToTeam("p1", "t1").Result;
+            //nir = game.AddPlayerToTeam("p2", "t1").Result;
+            //nir = game.AddPlayerToTeam("p3", "t1").Result;
+            //var players2 = game.ListPlayers("t1").Result;
+            //Console.WriteLine(String.Join(", ", players2));
 
             while (true)
             {
